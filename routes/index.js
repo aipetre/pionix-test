@@ -6,6 +6,14 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/signin', function(req, res) {
+    res.render('signin');
+});
+
+router.get('/signup', function(req, res) {
+    res.render('signup');
+});
+
 router.post('/login',function(req,res){
     // when user login set the key to redis.
     req.session.username=req.body.username;

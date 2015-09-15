@@ -1,0 +1,14 @@
+//
+   Created by iope on 9/15/2015.
+extends layout
+block content
+   div(class="container")
+      form(class="form-signin")
+         h2(class="form-signin-heading") Please sign in
+         span Or
+          a(href="/signup") Create an account
+         label(for="inputUsername" class="sr-only") Email address
+         input(type="email" id="inputUsername" class="form-control" placeholder="Email address" required autofocus)
+         label(for="inputPassword" class="sr-only") Password
+         input(type="password" id="inputPassword" class="form-control" placeholder="Password" required)
+         button(class="btn btn-lg btn-primary btn-block" type="submit") Sign in
