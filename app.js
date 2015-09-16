@@ -85,7 +85,8 @@ app.use(function(err, req, res, next) {
 function checkSession(req, res, next) {
     if (!req.session.username) {
         console.log("No session available");
-        res.redirect('/');
+        req.session.invalid = true;
+        res.redirect('/signin');
     } else {
         next();
     }

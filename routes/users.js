@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
-var Users = require('../libs/db/Users.js');
+// Get db models.
+var models  = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -12,14 +12,16 @@ router.post('/create', function(req, res) {
   // Get params
   var params = req.body;
 
-  Users.create(params).then(function () {
+  // Add new user.
+  models.Users.create(params).then(function () {
     // Successful create
-    res.status(201).send('User created');
+    res.render('success');
   }, function (err) {
     console.log(err);
-    res.status(400).send('User not created' + err.errors[0].message);
+    res.render('signup', {
+      errors: [err.errors[0].message]
+    });
   });
-
 });
 
 module.exports = router;

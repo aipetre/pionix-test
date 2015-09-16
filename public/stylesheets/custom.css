@@ -1,0 +1,11 @@
+.errors {
+    color: #ff2a28;
+    font-weight: 600;
+}
+body {
+    min-height: 2000px;
+}
+
+.navbar-static-top {
+    margin-bottom: 19px;
+}

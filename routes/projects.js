@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/list',function(req,res){
-    // TODO List projects
+router.get('/',function(req,res){
+    res.render('projects/index');
 });
 
 router.get('/retrieve/:projectId',function(req,res){
