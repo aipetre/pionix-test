@@ -17,6 +17,7 @@ var client  = redis.createClient();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var projects = require('./routes/projects');
+var dashboard = require('./routes/dashboard');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/dashboard', checkSession, dashboard);
 app.use('/projects', checkSession, projects);
 
 // catch 404 and forward to error handler
@@ -86,7 +88,15 @@ function checkSession(req, res, next) {
     if (!req.session.username) {
         console.log("No session available");
         req.session.invalid = true;
-        res.redirect('/signin');
+
+        // Check if ajax request
+        if (req.xhr) {
+            // Send unathorized
+            res.status(401).send();
+        } else {
+            // Redirect to page
+            res.redirect('/signin');
+        }
     } else {
         next();
     }

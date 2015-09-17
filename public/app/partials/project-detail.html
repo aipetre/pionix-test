@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="jumbotron">
+        <h3>Edit {{ project.name }}</h3>
+        <span class="errors">{{ message }}</span>
+        <form id="editProject">
+            <input class="input-lg" id="name" value="{{ project.name }}">
+            <br />
+            <a ng-href="#/projects"><button type="button" class="btn btn-link">Back</button></a>
+            <button type="button" class="btn btn-link" ng-click='Update(project.id);'>Save</button>
+        </form>
+    </div>
+</div>
+
+

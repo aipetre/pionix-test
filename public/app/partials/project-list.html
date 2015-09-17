@@ -1,0 +1,28 @@
+<div class="container">
+   <div class="jumbotron">
+      <h2 class="sub-header">Projects</h2>
+      <span class="errors">{{ message }}</span>
+      <div class="table-responsive">
+         <a ng-href="#/projects/create"><button type="button" class="btn btn-link">Create</button></a>
+         <table class="table table-striped">
+            <thead>
+               <th>Name</th>
+               <th>&nbsp;</th>
+               <th>&nbsp;</th>
+            </thead>
+            <tbody>
+               <tr ng-repeat="project in projects">
+                  <td>{{project.name}}</td>
+                  <td>
+                     <a ng-href="#/projects/{{project.id}}"><button type="button" class="btn btn-link">Edit</button></a>
+                  </td>
+                  <td>
+                     <button type="button" class="btn btn-danger" ng-click="Delete(project.id, project.name);">Delete</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+

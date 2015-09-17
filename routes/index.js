@@ -6,7 +6,7 @@ var Users = models.Users;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('signin');
 });
 
 // GET login page
@@ -33,9 +33,10 @@ router.post('/signin',function(req,res){
                 // User found
                 // Set the key to redis.
                 req.session.username = req.body.username;
+                req.session.userId = result.dataValues.id;
 
                 // Redirect to projects page.
-                res.redirect('/projects');
+                res.redirect('/dashboard');
             } else {
                 // Username or password is wrong
                 res.render('signin', {
