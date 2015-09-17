@@ -25,3 +25,7 @@ src/redis-server &
 3. Install bootstrap
 Visit [page] (http://getbootstrap.com/getting-started/#grunt) and follow steps to install via grunt. 
 
+
+## Projects CRUD
+CRUD methods for projects can imported into Postman from [here] (https://www.getpostman.com/collections/47ffd60027666fe2b9b8)
+
